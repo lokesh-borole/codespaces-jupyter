@@ -38,3 +38,21 @@ customer_df.show()
 
 ## apply inner join
 sales_df.join(customer_df, sales_df['customer_id']==customer_df['customer_id'], 'inner').select(customer_df['customer_id'],customer_df['customer_name'], sales_df['product_id']).show()
+
+## left join
+print("left join")
+sales_df.join(customer_df,sales_df['customer_id']==customer_df['customer_id'],'left').show()
+print('right join')
+customer_df.join(sales_df,customer_df['customer_id']==sales_df['customer_id'],'left').show()
+
+#left anti join 
+#"anti join" is a join operation that returns rows from the left DataFrame (or table) for which there is no matching row in the right DataFrame (or table), based on a specified join condition.s
+
+print("-----left anti join -------")
+customer_df.join(sales_df,customer_df["customer_id"]==sales_df["customer_id"],'left_anti').show()
+
+
+#Cross join - it combines each row from the first DataFrame with every row from the second DataFrame(dataframe1(rows)*dataframe2(rows)) . Note= Not preferable
+
+print("cross join")
+customer_df.crossJoin(sales_df).show()
