@@ -46,6 +46,7 @@ create_df.where(col('num')>35).show()
 create_df.filter((col('num')>35) & (col('id')==2)).show()
 
 # literal
+# literal= common value in each record for a column
 create_df.select("*",lit('lowercase').alias('case')).show()
 create_df.select("*", lit('none').alias("feature")).show()
 
